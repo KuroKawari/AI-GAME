@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Game</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- Màn hình menu -->
+  <section id="menu" class="screen active">
+    <h1>🤖 Khám phá Trí tuệ nhân tạo</h1>
+    <p>Chọn một thử thách để bắt đầu!</p>
+    <div class="cards">
+      <button class="card" data-screen="level1">🖼️<br />Thám tử hình ảnh</button>
+      <button class="card" data-screen="level2">🎵<br />Nhạc trưởng âm thanh</button>
+      <button class="card" data-screen="level3">🕺<br />Vũ điệu AI</button>
+    </div>
+  </section>
+
+  <section id="level1" class="screen">
+  <h2>🖼️ Thám tử hình ảnh</h2>
+  <p id="l1Hint" class="hint">⏳ Đang chuẩn bị...</p>
+
+  <div class="l1-layout">
+    <div class="l1-cam">
+      <video id="l1Video" width="320" height="240" autoplay muted playsinline></video>
+      <div id="l1Result" class="l1-result">AI chưa được huấn luyện</div>
+    </div>
+    <div id="l1Classes" class="l1-classes"></div>
+  </div>
+
+  <div>
+    <button class="small" id="l1Train">🧠 Huấn luyện AI</button>
+    <button class="small" id="l1Reset">🗑️ Làm lại từ đầu</button>
+    <button class="small" data-screen="menu">← Quay lại</button>
+  </div>
+</section>
+
+  <section id="level2" class="screen">
+  <h2>🎵 Nhạc trưởng âm thanh</h2>
+  <p id="l2Hint" class="hint">⏳ Đang chuẩn bị...</p>
+
+  <div class="l1-layout">
+    <div class="l1-cam">
+      <div id="l2Hero" class="hero">😴</div>
+      <div id="l2Result" class="l1-result">AI chưa được huấn luyện</div>
+      <canvas id="l2Spectrum" width="320" height="100"></canvas>
+      <div>🔊 Độ ồn lớp học: <b id="l2NoiseLabel">...</b></div>
+      <div class="noise-meter"><div id="l2NoiseBar"></div></div>
+    </div>
+    <div id="l2Classes" class="l1-classes"></div>
+  </div>
+
+  <div>
+    <button class="small" id="l2Train">🧠 Huấn luyện AI</button>
+    <button class="small" id="l2Reset">🗑️ Làm lại từ đầu</button>
+    <button class="small" data-screen="menu">← Quay lại</button>
+  </div>
+</section>
+
+  <section id="level3" class="screen">
+  <h2>🕺 Vũ điệu AI</h2>
+  <p id="l3Hint" class="hint">⏳ Đang chuẩn bị...</p>
+
+  <div class="l1-layout">
+    <div>
+      <video id="l3Video" class="l3-video" autoplay muted playsinline></video>
+      <canvas id="l3Canvas" width="320" height="240"></canvas>
+      <div id="l3Pose" class="l1-result">AI đang quan sát...</div>
+      <label class="hint"><input type="checkbox" id="l3Conf" /> Hiện độ tin cậy của AI</label>
+    </div>
+
+    <div class="l3-panel">
+      <div id="l3Command" class="command">Bấm "Bắt đầu chơi" nhé!</div>
+      <div class="l3-stats">
+        ⭐ Điểm: <b id="l3Score">0</b> &nbsp;·&nbsp;
+        Lượt: <b id="l3Round">0</b>/8 &nbsp;·&nbsp;
+        ⏱️ <b id="l3Time">-</b>
+      </div>
+      <div class="noise-meter" style="width:100%"><div id="l3Hold"></div></div>
+      <div id="l3Guide" class="l3-guide"></div>
+    </div>
+  </div>
+
+  <div>
+    <button class="small" id="l3Start">▶️ Bắt đầu chơi</button>
+    <button class="small" data-screen="menu">← Quay lại</button>
+  </div>
+</section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+<button id="btnSettings" title="Cài đặt">⚙️</button>
+
+<div id="settingsModal" class="modal">
+  <div class="modal-box">
+    <h2>⚙️ Cài đặt</h2>
+
+    <label>📷 Camera</label>
+    <select id="camSelect"></select>
+    <video id="video" width="240" height="180" autoplay muted playsinline></video>
+
+    <label>🎤 Micro</label>
+    <select id="micSelect"></select>
+    <div class="meter"><div id="meterBar"></div></div>
+    <p id="status" class="hint"></p>
+
+    <button class="small" id="btnCloseSettings">Xong</button>
+  </div>
+</div>
+</html>
